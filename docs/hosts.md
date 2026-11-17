@@ -117,6 +117,14 @@ skills directory. They teach the agent the grant model, pre-spend checks, and x4
 If sign-in succeeds but the host shows no tools, the host's HTTP client may be blocked before it
 reaches the server (see issue #6). Report the host name and version in an issue.
 
+## PayBox CLI
+
+The `@paybox-sh/sdk` CLI signs with a local signing key. Pass `--wait` on `paybox swap` and other
+money commands. Without it, an EVM swap can send the token approval and then stay at
+`pending_signature` with nothing to sign it (see issue #7).
+
+The CLI has no command yet to list or cancel requests left at `pending_signature`.
+
 ## When the signing window appears
 
 Every money operation completes in the PayBox signing window. Hosts differ in when they draw it, and
